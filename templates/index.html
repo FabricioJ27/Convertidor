@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Commercial Invoices</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 max-w-lg w-full space-y-6">
+    <div class="text-center">
+      <h1 class="text-2xl font-bold text-slate-800 tracking-tight">Generador de Commercial Invoices</h1>
+      <p class="text-slate-500 text-sm mt-1">Carga tu manifiesto y genera los PDFs individuales o el libro Excel.</p>
+    </div>
+
+    <form action="/generar" method="POST" enctype="multipart/form-data" class="space-y-4">
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">1. Archivo Manifiesto (.xlsx)</label>
+        <input type="file" name="manifiesto" accept=".xlsx" required 
+               class="block w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:bg-emerald-50 file:text-emerald-700 border border-slate-200 rounded-xl p-1 cursor-pointer">
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">2. Plantilla de Factura (.xlsx) <span class="text-xs text-slate-400 font-normal">(Obligatorio solo si descargas Excel)</span></label>
+        <input type="file" name="plantilla" accept=".xlsx"
+               class="block w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:bg-blue-50 file:text-blue-700 border border-slate-200 rounded-xl p-1 cursor-pointer">
+      </div>
+
+      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500">Formato de descarga:</label>
+        <div class="space-y-2">
+          <label class="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+            <input type="radio" name="formato" value="zip_pdf" checked class="text-blue-600 focus:ring-blue-500">
+            <span class="font-medium">📦 Archivo ZIP con PDFs individuales (en orden 001, 002, ...)</span>
+          </label>
+          <label class="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+            <input type="radio" name="formato" value="excel" class="text-blue-600 focus:ring-blue-500">
+            <span>📊 Archivo Excel con todas las pestañas</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" 
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition duration-150 flex items-center justify-center gap-2 shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+        </svg>
+        Generar y Descargar
+      </button>
+    </form>
+  </div>
+</body>
+</html>
