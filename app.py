@@ -63,7 +63,7 @@ def generar_pdf_fiel(datos, fecha_hoy):
         # Fila 2: Encabezados Shipper e Importer
         [Paragraph("SHIPPER/REMITENTE", p_h_left), "", Paragraph("IMPORTER (If Other than consignee)", p_h_left), "", "", ""],
         # Fila 3: Valores Shipper e Importer
-        [Paragraph("COURIER ALAIR S.A.S", p_shipper), "", Paragraph(str(datos['Destinatario']), p_importer), "", "", ""],
+        [Paragraph("PLUSCOURIER S.A.S", p_shipper), "", Paragraph(str(datos['Destinatario']), p_importer), "", "", ""],
         # Fila 4: Origen y Destino | Cuadro vacío contiguo
         [Paragraph("COUNTRY ORIGIN OF GOODS<br/><br/>(País de origen)<br/><br/>ESTADOS UNIDOS<br/><br/>COUNTRY DESTINATION OF GOODS<br/><br/>(País de destino) Ecuador", p_origin), "", "", "", "", ""],
         # Fila 5: Encabezados de ítems
